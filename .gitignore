@@ -305,3 +305,6 @@ docs/type3/signatures/
 
 # Local screenshot artifacts from *-screenshots.spec.ts
 frontend/editor/screenshots/
+
+# --- dev-system integration (SearchActions fork) ---
+lifecycle/stages/
