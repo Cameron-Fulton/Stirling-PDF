@@ -18,6 +18,17 @@ or `plan.md` — the reconciler compacts from `work-entries/`.
 
 ## Build
 
+### Prerequisites (verified installed on this box 2026-08-21)
+
+| tool | version | why |
+|---|---|---|
+| Temurin JDK | **25** | `build.gradle:54` sets `modernJavaVersion = 25`; CI uses `distribution: temurin`. Match the vendor. |
+| Task | 3.53.1 | `Taskfile.yml` is the entry point; raw `gradlew`/`npm` skips wiring the tasks do. |
+| uv | any | `task install` runs `engine:install`, which is `uv python install 3.13.8` + `uv sync`. **Not obvious from the stack description** - the engine layer is Python. |
+| Node | 25.x | frontend `npm install` |
+
+Gradle is NOT installed separately - the wrapper (`./gradlew`) fetches 9.7.1 itself.
+
 Task-runner driven (`Taskfile.yml`), not raw Gradle/npm:
 
 ```bash
